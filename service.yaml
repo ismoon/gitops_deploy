@@ -6,8 +6,10 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
-    # AWS Certificate Manager에서 인증서
-    # service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:ap-northeast-2:770808571291:certificate/fe5ed237-f743-4c15-9c2d-d54a37387569
+    # 가비아에서 도메인 생성하고 Router53으로 생성한 도메인을 등록한다. (네임서버 변경 필요)
+    # A 레코드 생성 후 http 접속 확인
+    # AWS Certificate Manager에서 인증서의 ARN 정보를 복사해서 붙여 넣는다. 
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:ap-northeast-2:579573111875:certificate/e9f928bd-f44f-40ea-851f-2f9f38b071cc
 spec:
   selector:
     app: frontend-nginx
@@ -21,6 +23,7 @@ spec:
     port: 443
     targetPort: 80
   type: LoadBalancer
+
 
 
 
