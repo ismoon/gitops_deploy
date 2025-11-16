@@ -15,8 +15,10 @@ spec:
         app: frontend-nginx
     spec:
       containers:
+      # ECR에 저장된 이미지로 지정한다.
       - image: 579573111875.dkr.ecr.ap-northeast-2.amazonaws.com/k8s-cluster-repo:v1.0
         name: frontend-nginx
+
 
 
 
